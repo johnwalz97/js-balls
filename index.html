@@ -148,7 +148,13 @@
 			time_pressed = getTime() - mousedown_time;
 			playground.createNewCircle(e.x,e.y, time_pressed/10);
 		}
-
+		$('body').bind( "touchstart", function(e){
+			mousedown_time = getTime();
+		});
+		$('body').bind( "touchend", function(e){
+			time_pressed = getTime() - mousedown_time;
+			playground.createNewCircle(e.x,e.y, time_pressed/10);
+		})
 		//technically we don't even need the mousedown variable but we're leaving it there for now..
 
 	})();
